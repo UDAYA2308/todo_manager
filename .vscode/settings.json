@@ -1,0 +1,4 @@
+{
+    "ruby.codeCompletion": "rcodetools",
+    "ruby.format": "rufo"
+}
