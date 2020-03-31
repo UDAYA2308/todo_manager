@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    render plain: User.all.order(:name).map { |user| user.to_pleasant_string }
+    render plain: User.all.order(:name).map { |user| user.to_pleasant_string }.join("\n")
+  end
+
+  def test
+    render plain: "eorkin"
   end
 
   # GET /posts/1
@@ -14,11 +18,11 @@ class UsersController < ApplicationController
   end
 
   def login
-    user_name=params[:name]
-    user_password=params[:password]
-    user=User.find(name)
-    response_text='False'
-    response_text = 'Ture' if (user_password == user.password)
+    user_name = params[:name]
+    user_password = params[:password]
+    user = User.all.where("name = ?",user_name)
+    response_text = "False"
+    response_text = "True" if (user_password == user.password)
     render plain: response_text
   end
 
@@ -41,7 +45,7 @@ class UsersController < ApplicationController
       email: user_email,
       password: user_password,
     )
-    response_text="New user added with name #{user_name}"
+    response_text = "New user added with name #{user_name}"
     render plain: response_text
   end
 
