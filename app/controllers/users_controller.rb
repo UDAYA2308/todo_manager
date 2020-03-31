@@ -1,41 +1,40 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /posts
-  # GET /posts.json
+  # GET /users
+  # GET /users.json
   def index
     render plain: User.all.order(:name).map { |user| user.to_pleasant_string }.join("\n")
   end
 
-  def test
-    render plain: "eorkin"
-  end
-
-  # GET /posts/1
-  # GET /posts/1.json
+  # GET /users/1
+  # GET /users/1.json
   def show
+    user_id=params[:id]
+    user=User.find(user_id)
+    user.to_pleasant_string
   end
 
   def login
-    user_name = params[:name]
+    user_email = params[:email]
     user_password = params[:password]
-    user = User.all.where("name = ?",user_name)
-    response_text = "False"
-    response_text = "True" if (user_password == user.password)
+    user=User.find_by(email: user_email, password: user_password)
+    response_text = "True"
+    response_text = "False" if user == nil
     render plain: response_text
   end
 
-  # GET /posts/new
+  # GET /users/new
   def new
   end
 
-  # GET /posts/1/edit
+  # GET /users/1/edit
   def edit
   end
 
-  # POST /posts
-  # POST /posts.json
+  # POST /users
+  # POST /users.json
   def create
     user_name = params[:name]
     user_email = params[:email]
@@ -45,30 +44,30 @@ class UsersController < ApplicationController
       email: user_email,
       password: user_password,
     )
-    response_text = "New user added with name #{user_name}"
+    response_text = "New user added with user_id #{user_new.id}"
     render plain: response_text
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
+  # PATCH/PUT /users/1
+  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: "Post was successfully updated." }
-        format.json { render :show, status: :ok, location: @post }
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: "user was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
+  # DELETE /users/1
+  # DELETE /users/1.json
   def destroy
-    @post.destroy
+    @user.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "user was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -76,12 +75,12 @@ class UsersController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_post
-    @post = Post.find(params[:id])
+  def set_user
+    @user = User.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
-  def post_params
-    params.require(:post).permit(:title, :content)
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
   end
 end
