@@ -1,4 +1,4 @@
-class User < ApplicationRecord::Base64
+class User < ActiveRecord::Base
     def to_pleasant_string
     "#{name} #{email}"
     end

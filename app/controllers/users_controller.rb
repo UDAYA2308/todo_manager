@@ -14,7 +14,12 @@ class UsersController < ApplicationController
   end
 
   def login
-    render plain: "this is true"
+    user_name=params[:name]
+    user_password=params[:password]
+    user=User.find(name)
+    response_text='False'
+    response_text = 'Ture' if (user_password == user.password)
+    render plain: response_text
   end
 
   # GET /posts/new
