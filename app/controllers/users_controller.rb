@@ -11,15 +11,15 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    user_id=params[:id]
-    user=User.find(user_id)
+    user_id = params[:id]
+    user = User.find(user_id)
     user.to_pleasant_string
   end
 
   def login
     user_email = params[:email]
     user_password = params[:password]
-    user=User.find_by(email: user_email, password: user_password)
+    user = User.find_by(email: user_email, password: user_password)
     response_text = "True"
     response_text = "False" if user == nil
     render plain: response_text

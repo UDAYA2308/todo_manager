@@ -1,0 +1,151 @@
+body {
+    margin: 0 auto;
+    font-family: sans-serif;
+    max-width: 600px;
+}
+
+.TodoPage__title {
+    font-family: OpenSans-Semibold;
+    font-size: 20px;
+    color: #453C52;
+    letter-spacing: 0.14px;
+}
+
+.TodoMain {}
+
+.Todo {
+    display: inline-flex;
+}
+
+.Todo__text {
+    background: #FFFFFF;
+    border: 1px solid #BFB8CC;
+    border-radius: 4px;
+    border-radius: 4px;
+    padding: 10px;
+    width: 190px;
+    height: 12px;
+    font-family: OpenSans;
+    font-size: 14px;
+    color: #726A7E;
+    letter-spacing: 0.1px;
+}
+
+.Todo__date {
+    background: #FFFFFF;
+    border: 1px solid #BFB8CC;
+    border-radius: 4px;
+    border-radius: 4px;
+    margin-left: 10px;
+    padding: 7px;
+    color: #726A7E;
+    font-family: OpenSans-Semibold;
+    width: 124px;
+    height: 18px;
+}
+
+.Todo__add {
+    width: 72px;
+    height: 32px;
+    margin-left: 10px;
+    background: #48BB78;
+    border-radius: 4px;
+    font-family: OpenSans-Semibold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0.1px;
+    border: #48BB78;
+    opacity: 0.9;
+}
+
+.Todos {}
+
+.Todos__due {
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.TodoDue__title {
+    font-family: OpenSans-Semibold;
+    font-size: 14px;
+    color: #453C52;
+    letter-spacing: 0.1px;
+}
+
+.TodoDue__remaining {
+    font-family: OpenSans;
+    font-size: 12px;
+    color: #453C52;
+    margin-left: 15px;
+    letter-spacing: 0.09px;
+    align-items: center;
+}
+
+.TodoList {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style-type: none;
+}
+
+.TodoList__todos {
+    display: flex;
+    align-items: center;
+    max-height: 19px;
+    max-width: 300px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.TodoList__todos-text {
+    font-family: OpenSans;
+    font-size: 14px;
+    color: #453C52;
+    margin-left: 10px;
+    letter-spacing: 0.1px;
+}
+
+.TodoList__todos:hover {
+    background: #F1EDF7;
+    border-radius: 4px;
+    border-radius: 4px;
+}
+
+.TodoList__todos-checkbox {
+    background: #FFFFFF;
+    border: 1px solid #BFB8CC;
+    border-radius: 4px;
+    border-radius: 4px;
+}
+
+.TodoList__todos-remove:hover {
+    visibility: visible;
+}
+
+.TodoList__todos-remove {
+    max-width: 10px;
+    max-height: 20px;
+    margin-left: 10px;
+    visibility: hidden;
+}
+
+.TodoList__todos:hover .TodoList__todos-remove {
+    visibility: visible;
+}
+
+.TodoList__todos-overdue {
+    font-family: OpenSans;
+    font-size: 12px;
+    margin-left: 10px;
+    color: #C53030;
+    letter-spacing: 0.09px;
+}
+
+.TodoList__todos-dueDate {
+    font-family: OpenSans;
+    font-size: 12px;
+    color: #726A7E;
+    margin-left: 10px;
+    letter-spacing: 0.09px;
+}
