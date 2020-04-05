@@ -23,8 +23,6 @@ body {
     border-radius: 4px;
     border-radius: 4px;
     padding: 10px;
-    width: 190px;
-    height: 12px;
     font-family: OpenSans;
     font-size: 14px;
     color: #726A7E;
@@ -37,21 +35,18 @@ body {
     border-radius: 4px;
     border-radius: 4px;
     margin-left: 10px;
-    padding: 7px;
+    padding: 10px;
     color: #726A7E;
     font-family: OpenSans-Semibold;
-    width: 124px;
-    height: 18px;
 }
 
 .Todo__add {
-    width: 72px;
-    height: 32px;
     margin-left: 10px;
     background: #48BB78;
     border-radius: 4px;
     font-family: OpenSans-Semibold;
     font-size: 14px;
+    padding: 10px;
     color: #FFFFFF;
     letter-spacing: 0.1px;
     border: #48BB78;
@@ -92,10 +87,7 @@ body {
 .TodoList__todos {
     display: flex;
     align-items: center;
-    max-height: 19px;
-    max-width: 300px;
     margin-left: 20px;
-    margin-bottom: 10px;
 }
 
 .TodoList__todos-text {
@@ -117,10 +109,6 @@ body {
     border: 1px solid #BFB8CC;
     border-radius: 4px;
     border-radius: 4px;
-}
-
-.TodoList__todos-remove:hover {
-    visibility: visible;
 }
 
 .TodoList__todos-remove {
