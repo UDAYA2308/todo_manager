@@ -1,0 +1,41 @@
+
+<main class="TodoMain">
+
+    <article>
+        <h1 class="TodoPage__title"> My To-do List </h1>
+        <section class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ="Todo">
+            <input type="text" class="Todo__text" placeholder="What’s next?" >
+            <input type="date" class="Todo__date" value="date">
+            <input type="button" class="Todo__add" value="Add">
+        </section>
+
+        <%= render partial: "todo-section" ,locals: {
+            section_title: "Overdue",
+            todos: Todo.overdue,
+            completed_count: 0,
+            total_count: (Todo.overdue.count - Todo.overdue.completed.count),
+            show_date: true,
+            display_completed: false
+        } %>
+
+        <%= render partial: "todo-section" ,locals: {
+            section_title: "Due Today",
+            todos: Todo.due_today,
+            completed_count: Todo.due_today.completed.count,
+            total_count: Todo.due_today.count,
+            show_date: false,
+            display_completed: true
+        } %>
+
+
+        <%= render partial: "todo-section" ,locals: {
+            section_title: "Due later",
+            todos: Todo.due_later,
+            completed_count: Todo.due_later.completed.count,
+            total_count: Todo.due_later.count,
+            show_date: true,
+            display_completed: true
+        } %>
+        
+    </article>
+</main>

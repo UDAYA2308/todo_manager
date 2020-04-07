@@ -1,0 +1,30 @@
+<section class="Todos">
+    <div class="Todos__due">
+        <p class="TodoDue__title"><b><%= section_title  %></b></p>
+        <p class="TodoDue__remaining"><%= completed_count  %>/<%= total_count  %></p>
+    </div>
+
+     <% todos.each do |todo|%>
+        <ul class="TodoList">
+            <% if !todo.completed || display_completed %>
+                <li class="TodoList__todos">
+                    <% if todo.completed %>
+                      <input type="checkbox" class="TodoList__checkbox" checked >
+                    <% else %>
+                      <input type="checkbox" class="TodoList__checkbox" >
+                    <% end %>
+                    <% if todo.completed %>
+                      <p class="TodoList__todos-text" style="text-decoration: line-through;"><%= todo.todo_text  %></p>
+                    <% else %>
+                      <p class="TodoList__todos-text"><%= todo.todo_text  %></p>
+                    <% end %>
+                    <% if show_date %>
+                        <p class="TodoList__todos-dueDate"><%=todo.due_date.to_s(:short)%></p>
+                    <% end %>
+                    <img src="bin.png" class="TodoList__todos-remove">
+                </li>
+            <% end %>
+        </ul>
+        
+    <% end %>
+</section>
