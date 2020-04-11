@@ -8,10 +8,13 @@
         <ul class="TodoList">
             <% if !todo.completed || display_completed %>
                 <li class="TodoList__todos">
-                    <% if todo.completed %>
-                      <input type="checkbox" class="TodoList__checkbox" checked >
-                    <% else %>
-                      <input type="checkbox" class="TodoList__checkbox" >
+                    <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
+                        <input
+                          class="TodoList-checkbox"
+                          name="completed"
+                          type="checkbox" <%= todo.completed ? "checked" : "" %>
+                          onclick="this.form.submit()"
+                        />
                     <% end %>
                     <% if todo.completed %>
                       <p class="TodoList__todos-text" style="text-decoration: line-through;"><%= todo.todo_text  %></p>
@@ -21,7 +24,13 @@
                     <% if show_date %>
                         <p class="TodoList__todos-dueDate"><%=todo.due_date.to_s(:short)%></p>
                     <% end %>
-                    <img src="bin.png" class="TodoList__todos-remove">
+                    <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
+                        <input
+                          class="TodoList__todos-remove"
+                          type="image"
+                          src="bin.png"
+                        />
+                    <% end %>
                 </li>
             <% end %>
         </ul>

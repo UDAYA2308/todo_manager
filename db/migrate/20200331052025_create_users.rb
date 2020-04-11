@@ -9,9 +9,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     end
   end
 
-  def up
-  end
-
   def down
   end
 end
